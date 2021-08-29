@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>videoPlayer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/siteIcon.png">
+</head>
+<body>
+    
+    <div class="video__main">
+        <div class="video__blog">
+            <video src="video/Introducing_Windows_11.mp4" class="video" style="width: 100%; height: 100%;"></video>
+            <div class="video__content">
+                <div class="video__header">
+                    <h3 class="video__title">Windows 11 Official trailer</h3>
+                    <span class="share">
+                        <button class="share-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <div class="share-options">
+                            <p class="title">share</p>
+                            <div class="social-media">
+                                <button class="social-media-btn"><i class="far fa-folder-open"></i></button>
+                                <button class="social-media-btn"><i class="fab fa-whatsapp"></i></button>
+                                <button class="social-media-btn"><i class="fab fa-instagram"></i></button>
+                                <button class="social-media-btn"><i class="fab fa-twitter"></i></button>
+                                <button class="social-media-btn"><i class="fab fa-facebook-f"></i></button>
+                                <button class="social-media-btn"><i class="fab fa-linkedin-in"></i></button>
+                            </div>
+                            <div class="link-container">
+                                <p class="link">https://example.com/share</p>
+                                <button class="copy-btn">copy</button>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="video__content__main">
+                    <button class="play play_circle"><i class="fas fa-play-circle" id="play_circle__icon"></i></button>
+                </div>
+                <div class="footer">
+                    <div class="video__bartime">
+                        <p class="video__time video__spendTime">00:00</p>
+                        <input class="video__range" type="range" name="" min="0" max="100" id="video__range">
+                        <p class="video__time video__remainingTime">00:00</p>
+                    </div>
+                    <div class="footer__content">
+                        <div class="video__left">
+                            <button><i class="fas fa-backward"></i></button>
+                            <button class="play"><i class="fas fa-play" id="play__icon"></i></button>
+                            <button class="stop"><i class="fas fa-stop" id="stop__icon"></i></button>
+                            <button><i class="fas fa-forward"></i></button> 
+                            <button class="video__playAgain" onclick="videoAgain()"><i class="fas fa-undo-alt" id="again__icon"></i></button>
+                        </div>
+                        <span class="speed__indicator" style="color: #fff;">1x</span>
+                        <div class="video__right">
+                            <span class="volume__blog">
+                                <span class="span"><input class="volume" min="0" max="1" type="range" step="0.01" id="volume" ></span>
+                                <button><i class="fas fa-volume-up" id="volume__icon">
+                                </i></button>
+                            </span>
+                            <button class="screen"><i class="fas fa-expand" id="screen__icon"></i></button>
+                            <button class="minimize"><i class="fas fa-chevron-down" id="minimize__icon"></i></button>
+                            <span class="videoSettings">
+                                <i class="fas fa-ellipsis-v" id="videoSettings__icon"></i>
+                                <span class="videoSettings__content">
+                                    <p class="playbackSpeed__text">Playback speed<i class="fas fa-chevron-right"></i> <span class="playbackSpeed__indicator">1x</span></p>
+                                    <p class="playbackSpeed__text ">Playback speed<i class="fas fa-chevron-right"></i><input class="playbackSpeed__custom" type="number" min="0" max="16" value="1"  placeholder="2x"></p>
+                                    <p class="video__download playbackSpeed__text"><a href="video/Introducing_Windows_11.mp4" download><i class="fa fa-download"></i> Download video</a></p>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
