@@ -7,11 +7,12 @@ const volume = document.querySelector('#volume__icon');
 const videoVolume = document.querySelector('.volume');
 const volumeValue = document.querySelector('.volume');
 const videoStop = document.querySelector('.stop');
-const screen = document.querySelector('.screen');
+const fullScreen = document.querySelector('.screen');
 const minimize = document.querySelector('.minimize');
 const videoSettings = document.querySelector('.videoSettings');
 const videoBlog = document.querySelector('.video__blog');
 const videoMain = document.querySelector('.video__main');
+const videoContent = document.querySelector('.video__content');
 // Video play
 
 play.forEach(ply => { 
@@ -26,15 +27,20 @@ play.forEach(ply => {
         }
     });
 });
-video.addEventListener('click', function(){
-    if (videoBlog.classList.contains('active')) {
-        video.pause();
-        videoBlog.classList.remove('active');
-    }
-    else{
-        video.play();
-        videoBlog.classList.add('active');
-    }
+if (screen.width > 776) { 
+    video.addEventListener('click', function(){
+        if (videoBlog.classList.contains('active')) {
+            video.pause();
+            videoBlog.classList.remove('active');
+        }
+        else{
+            video.play();
+            videoBlog.classList.add('active');
+        }
+    })
+}
+video.addEventListener('ended', function(){
+    videoBlog.classList.remove('active')
 })
 // video barTime
 videoRange.value=video.currentTime;
@@ -54,7 +60,7 @@ videoRange.addEventListener('click', function(e){
 // Video Volume
 
 let val=0;
-video.volume = videoVolume.value;
+video.volume = videoVolume.value
 videoVolume.addEventListener('change', function(){
     video.volume = this.value;
     if (this.value == 0) {
@@ -67,7 +73,7 @@ videoVolume.addEventListener('change', function(){
 volume.addEventListener('click', function(){
     this.classList.toggle('active');
     if (this.classList.contains('active')) {
-        val=video.volume;
+        val = videoVolume.value;
         video.volume = 0;
         videoVolume.value = 0;
     }
@@ -78,7 +84,7 @@ volume.addEventListener('click', function(){
 });
 
 // Video functions
-screen.addEventListener('click', function(){
+fullScreen.addEventListener('click', function(){
     video.requestFullscreen();
 })
 minimize.addEventListener('click', function(){
@@ -116,13 +122,15 @@ playbackSpeed.addEventListener('click', function(){
     else{
         video.playbackRate = 1;
         playbackSpeedIndicator.innerHTML = '1x'
-        speedIndicator.innerHTML = '1x'
+        speedIndicator.innerHTML = ''
     }
-    
 });
 playbackSpeedCustom.addEventListener('click', function(){
-    video.playbackRate = playbackSpeedCustom.value
-    speedIndicator.innerHTML = playbackSpeedCustom.value + 'x'
+    video.playbackRate = this.value
+    speedIndicator.innerHTML = this.value + 'x'
+    if (this.value == 1) {
+        speedIndicator.innerHTML = ''
+    }
 });
 function videoAgain(){
     video.classList.toggle('loop')
@@ -133,4 +141,8 @@ function videoAgain(){
     else{
         video.removeAttribute('loop')
     }
+}
+function copyLink(){
+    let copyText = document.querySelector('.link');
+    navigator.clipboard.writeText(copyText.innerHTML)
 }

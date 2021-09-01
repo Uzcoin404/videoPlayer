@@ -7,6 +7,7 @@
     <title>videoPlayer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="icon" href="img/siteIcon.png">
 </head>
 <body>
@@ -33,7 +34,7 @@
                             </div>
                             <div class="link-container">
                                 <p class="link">https://example.com/share</p>
-                                <button class="copy-btn">copy</button>
+                                <button onclick="copyLink()" class="copy-btn"><i class="far fa-clipboard"></i></button>
                             </div>
                         </div>
                     </span>
@@ -49,13 +50,13 @@
                     </div>
                     <div class="footer__content">
                         <div class="video__left">
-                            <button><i class="fas fa-backward"></i></button>
+                            <button class="video__backward"><i class="fas fa-backward"></i></button>
                             <button class="play"><i class="fas fa-play" id="play__icon"></i></button>
                             <button class="stop"><i class="fas fa-stop" id="stop__icon"></i></button>
-                            <button><i class="fas fa-forward"></i></button> 
+                            <button class="video__forward"><i class="fas fa-forward"></i></button> 
                             <button class="video__playAgain" onclick="videoAgain()"><i class="fas fa-undo-alt" id="again__icon"></i></button>
                         </div>
-                        <span class="speed__indicator" style="color: #fff;">1x</span>
+                        <span class="speed__indicator" style="color: #fff;"></span>
                         <div class="video__right">
                             <span class="volume__blog">
                                 <span class="span"><input class="volume" min="0" max="1" type="range" step="0.01" id="volume" ></span>
@@ -68,7 +69,7 @@
                                 <i class="fas fa-ellipsis-v" id="videoSettings__icon"></i>
                                 <span class="videoSettings__content">
                                     <p class="playbackSpeed__text">Playback speed<i class="fas fa-chevron-right"></i> <span class="playbackSpeed__indicator">1x</span></p>
-                                    <p class="playbackSpeed__text ">Playback speed<i class="fas fa-chevron-right"></i><input class="playbackSpeed__custom" type="number" min="0" max="16" value="1"  placeholder="2x"></p>
+                                    <p class="playbackSpeed__text videoSpeedup_custom">Playback speed<i class="fas fa-chevron-right"></i><input class="playbackSpeed__custom" type="number" min="1" max="16" value="1"  placeholder="2x"></p>
                                     <p class="video__download playbackSpeed__text"><a href="video/Introducing_Windows_11.mp4" download><i class="fa fa-download"></i> Download video</a></p>
                                 </span>
                             </span>
