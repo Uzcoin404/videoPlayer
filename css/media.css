@@ -9,6 +9,10 @@
         width: 100%;
         height: auto;
     }
+    .video__blog.active .video__backward, .video__blog.active .video__forward{
+        opacity: 0;
+        pointer-events: none;
+    }
     .volume__blog:hover .span{
         height: 100%;
         opacity: 1;

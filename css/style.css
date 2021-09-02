@@ -116,7 +116,7 @@ i:hover{
 #play_circle__icon:hover{
     background: #0e141f;
 }
-.video__blog.active #play_circle__icon, .video__blog.active .video__backward, .video__blog.active .video__forward{
+.video__blog.active #play_circle__icon{
     opacity: 0;
     pointer-events: none;
 }
